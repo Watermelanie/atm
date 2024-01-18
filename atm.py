@@ -20,11 +20,15 @@ class ATM():
         if user.pin == pin:
             return True
         return False
+    
+    def addUser(self, user):
+        self.users[user.id] = user
 
 class User():
     def __init__(self, id, pin):
         self.id = id
         self.pin = pin
+        self.card = Card(id)
         self.accounts = {} # maps account type to account
     
     def createAccount(self, type):
@@ -32,6 +36,9 @@ class User():
 
     def selectAccount(self, type):
         return self.accounts[type]
+    
+    def getCard(self):
+        return self.card
 
 class Account():
     def __init__(self, type, balance):
@@ -39,6 +46,9 @@ class Account():
         self.balance = balance
     
     def seeBalance(self):
+        print(self.balance)
+
+    def getBalance(self):
         return self.balance
     
     def deposit(self, amount):

@@ -1,1 +1,1 @@
-# atm
+This is a very simplified implementation of an ATM. The test file shows a simple example of how the process of using the atm would look like.
